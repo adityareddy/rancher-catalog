@@ -1,0 +1,47 @@
+cert-service:
+  labels:
+    io.rancher.scheduler.global: 'true'
+    io.rancher.container.pull_image: always
+    io.rancher.container.start_once: true
+  tty: true
+  image: adityareddy/flocker-conf:latest
+  stdin_open: true
+  volumes:
+    - /etc/flocker:/etc/flocker
+  
+control-service:
+  labels:
+    io.rancher.container.pull_image: always
+  tty: true
+  net: host
+  image: clusterhq/flocker-control-service:latest
+  stdin_open: true
+  volumes:
+    - /etc/flocker:/etc/flocker
+
+dataset-agent:
+  labels:
+    io.rancher.scheduler.global: 'true'
+    io.rancher.container.pull_image: always
+  tty: true
+  net: host
+  image: clusterhq/flocker-dataset-agent:latest
+  privileged: true
+  stdin_open: true
+  volumes:
+    - /etc/flocker:/etc/flocker
+    - /flocker:/flocker
+    - /:/host
+    - /dev:/dev
+    
+docker-plugin:
+  labels:
+    io.rancher.scheduler.global: 'true'
+    io.rancher.container.pull_image: always
+  tty: true
+  net: host
+  image: clusterhq/flocker-dockerplugin:latest
+  stdin_open: true
+  volumes:
+    - /etc/flocker:/etc/flocker
+    - /run/docker:/run/docker
