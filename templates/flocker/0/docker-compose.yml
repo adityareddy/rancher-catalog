@@ -12,6 +12,7 @@ cert-service:
 control-service:
   labels:
     io.rancher.container.pull_image: always
+    io.rancher.container.hostname_override: container_name
   tty: true
   net: host
   image: clusterhq/flocker-control-service:latest
@@ -23,6 +24,7 @@ dataset-agent:
   labels:
     io.rancher.scheduler.global: 'true'
     io.rancher.container.pull_image: always
+    io.rancher.container.hostname_override: container_name
   tty: true
   net: host
   image: clusterhq/flocker-dataset-agent:latest
@@ -38,6 +40,7 @@ docker-plugin:
   labels:
     io.rancher.scheduler.global: 'true'
     io.rancher.container.pull_image: always
+    io.rancher.container.hostname_override: container_name
   tty: true
   net: host
   image: clusterhq/flocker-dockerplugin:latest
