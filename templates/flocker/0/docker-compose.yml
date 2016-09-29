@@ -14,7 +14,6 @@ control-service:
     io.rancher.container.pull_image: always
     io.rancher.container.hostname_override: container_name
   tty: true
-  net: host
   image: clusterhq/flocker-control-service:latest
   stdin_open: true
   volumes:
@@ -26,7 +25,6 @@ dataset-agent:
     io.rancher.container.pull_image: always
     io.rancher.container.hostname_override: container_name
   tty: true
-  net: host
   image: clusterhq/flocker-dataset-agent:latest
   privileged: true
   stdin_open: true
@@ -42,7 +40,6 @@ docker-plugin:
     io.rancher.container.pull_image: always
     io.rancher.container.hostname_override: container_name
   tty: true
-  net: host
   image: clusterhq/flocker-dockerplugin:latest
   stdin_open: true
   volumes:
