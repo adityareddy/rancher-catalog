@@ -2,7 +2,3 @@ cert-service:
   scale: 1
 control-service:
   scale: 1
-dataset-agent:
-  scale: 1
-docker-plugin:
-  scale: 1
