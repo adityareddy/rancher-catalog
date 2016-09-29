@@ -22,3 +22,6 @@ do
 	mv $OUTPUT ${OUTPUT/*./node.}
 done
 chmod 0600 /etc/flocker/*
+
+git clone https://github.com/adityareddy/lunanode-flocker-plugin
+/opt/flocker/bin/pip install huawei-oceanstor-flocker-plugin/
