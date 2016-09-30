@@ -24,6 +24,9 @@ dataset-agent:
     io.rancher.scheduler.global: 'true'
     io.rancher.container.pull_image: always
     io.rancher.container.hostname_override: container_name
+  environment:
+    - API_ID=${api_id}
+    - API_KEY=${api_key}
   tty: true
   image: adityareddy/flocker-dataset-agent:latest
   privileged: true
