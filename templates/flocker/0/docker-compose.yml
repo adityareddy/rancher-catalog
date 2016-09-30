@@ -25,7 +25,7 @@ dataset-agent:
     io.rancher.container.pull_image: always
     io.rancher.container.hostname_override: container_name
   tty: true
-  image: clusterhq/flocker-dataset-agent:latest
+  image: adityareddy/flocker-dataset-agent:latest
   privileged: true
   stdin_open: true
   volumes:
