@@ -1,13 +1,13 @@
 #!/bin/bash
 
-META_URL="http://rancher-metadata/2015-07-25"
-SELF_NAME=$(curl -s -H 'Accept: application/json' ${META_URL}/self/host| jq -r .name)
+META_URL="http://rancher-metadata/latest"
+CONTROL_SERVICE_IP=$(curl -s -H 'Accept: application/json' ${META_URL}/stacks/flocker/services/control-service/containers/0/primary_ip)
 
 export PATH=$PATH:/opt/flocker/bin/
 
 rm /etc/flocker/*
 cp /app/agent.yml /etc/flocker/agent.yml
-echo -e "\n  hostname: \"${SELF_NAME}\"" >> /etc/flocker/agent.yml
+echo -e "\n  hostname: ${SELF_NAME} >> /etc/flocker/agent.yml
 curl -LOk https://s3.ap-south-1.amazonaws.com/adityareddy-rancher/certs/cluster.crt
 curl -LOk https://s3.ap-south-1.amazonaws.com/adityareddy-rancher/certs/cluster.key
 # if [ "$NODE" = "CONTROL" ]
