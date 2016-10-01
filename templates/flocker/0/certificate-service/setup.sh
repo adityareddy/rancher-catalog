@@ -23,4 +23,7 @@ do
   echo $OUTPUT
 	mv $OUTPUT ${OUTPUT/*./node.}
 done
+
+flocker-ca create-api-certificate plugin
+
 chmod 0600 /etc/flocker/*
