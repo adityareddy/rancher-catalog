@@ -56,7 +56,7 @@ admin-gui:
   environment:
     - CONTROL_SERVICE=flocker_control-service_1
     - USERNAME=plugin
-    - CERTS_PATH=/
+    - CERTS_PATH=/etc/flocker/
   tty: true
   image: clusterhq/experimental-volumes-gui:latest
   stdin_open: true
