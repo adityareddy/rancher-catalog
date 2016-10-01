@@ -48,3 +48,17 @@ docker-plugin:
   volumes:
     - /etc/flocker:/etc/flocker
     - /run/docker:/run/docker
+    
+admin-gui:
+  labels:
+    io.rancher.container.pull_image: always
+    io.rancher.container.hostname_override: container_name
+  environment:
+    - CONTROL_SERVICE=flocker_control-service_1
+    - USERNAME=plugin
+    - CERTS_PATH=/
+  tty: true
+  image: clusterhq/experimental-volumes-gui:latest
+  stdin_open: true
+  volumes:
+    - /etc/flocker:/etc/flocker
