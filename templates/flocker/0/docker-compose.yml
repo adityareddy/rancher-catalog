@@ -17,7 +17,7 @@ control-service:
     io.rancher.container.pull_image: always
     io.rancher.container.hostname_override: container_name
   tty: true
-  image: clusterhq/flocker-control-service:latest
+  image: clusterhq/flocker-control-service:1.14.0
   stdin_open: true
   volumes:
     - /etc/flocker:/etc/flocker

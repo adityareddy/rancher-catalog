@@ -2,8 +2,5 @@ version: 1
 dataset:
   backend: "loopback"
   root_path: "/var/lib/flocker/loopback"
-  api_id: api_id
-  api_key: api_key
 control-service:
   port: 4524
-  hostname: flocker_control-service_1

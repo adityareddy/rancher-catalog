@@ -1,4 +1,4 @@
-FROM        clusterhq/flocker-dataset-agent:latest
+FROM        clusterhq/flocker-dataset-agent:1.14.0
 
 ADD         . /tmp/
 
