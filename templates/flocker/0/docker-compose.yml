@@ -36,3 +36,15 @@ dataset-agent:
     - /flocker:/flocker
     - /:/host
     - /dev:/dev
+
+docker-plugin:
+  labels:
+    io.rancher.scheduler.global: 'true'
+    io.rancher.container.pull_image: always
+    io.rancher.container.hostname_override: container_name
+  tty: true
+  image: clusterhq/flocker-dockerplugin:1.14.0
+  stdin_open: true
+  volumes:
+    - /etc/flocker:/etc/flocker
+    - /run/docker:/run/docker

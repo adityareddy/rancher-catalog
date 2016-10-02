@@ -9,8 +9,8 @@ rm -r /etc/flocker/*
 mkdir -p /var/lib/flocker/loopback
 cp /app/agent.yml /etc/flocker/agent.yml
 echo -e "\n  hostname: ${CONTROL_SERVICE_IP}" >> /etc/flocker/agent.yml
-# sed -ri 's/^(\s*)(api_id\s*:\s*api_id\s*$)/\1api_id: '${API_ID}'/' /etc/flocker/agent.yml
-# sed -ri 's/^(\s*)(api_key\s*:\s*api_key\s*$)/\1api_key: '${API_KEY}'/' /etc/flocker/agent.yml
+sed -ri 's/^(\s*)(api_id\s*:\s*api_id\s*$)/\1api_id: '${API_ID}'/' /etc/flocker/agent.yml
+sed -ri 's/^(\s*)(api_key\s*:\s*api_key\s*$)/\1api_key: '${API_KEY}'/' /etc/flocker/agent.yml
 
 curl -LOk https://s3.ap-south-1.amazonaws.com/adityareddy-rancher/certs/cluster.crt
 curl -LOk https://s3.ap-south-1.amazonaws.com/adityareddy-rancher/certs/cluster.key
