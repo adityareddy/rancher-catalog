@@ -26,6 +26,7 @@ arango-dbservers:
   tty: true
   entrypoint: /opt/rancher/bin/dbservers.sh
   image: arangodb:3.0
+  volume_driver: flocker
   volumes:
     - arangodb1:/var/lib/arangodb
   labels:
