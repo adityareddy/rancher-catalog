@@ -4,15 +4,8 @@
   description: "ArangoDB Cluster"
   uuid: arangodb-1
   minimum_rancher_version: v0.46.0
-  questions:
-    - variable: replset_name
-      description: "Name of the MongoDB replicaSet"
-      label: "ReplicaSet Name"
-      type: "string"
-      required: true
-      default: "rs0"
 arango-dbservers:
-  scale: 5
+  scale: 1
   health_check:
     port: 8529
     interval: 2000
@@ -25,10 +18,6 @@ arango-agency-conf:
   scale: 3
 arango-coordinators:
   scale: 2
-arango-dbservers-conf:
-  scale: 1
-arango-datavolume:
-  scale: 1
 arango-agency:
   scale: 3
 

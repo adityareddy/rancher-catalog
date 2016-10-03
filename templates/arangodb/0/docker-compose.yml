@@ -26,12 +26,13 @@ arango-dbservers:
   tty: true
   entrypoint: /opt/rancher/bin/dbservers.sh
   image: arangodb:3.0
+  volumes:
+    - arangodb1:/var/lib/arangodb
   labels:
     io.rancher.container.hostname_override: container_name
     io.rancher.sidekicks: arango-dbservers-conf, arango-datavolume
     io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
   volumes_from:
-    - arango-datavolume
     - arango-dbservers-conf
     
 arango-dbservers-conf:
